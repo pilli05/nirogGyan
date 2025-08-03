@@ -54,12 +54,12 @@ const Home = () => {
   return (
     <div className="!p-10">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-bold text-gray-600 underline">
+        <h1 className="text-2xl font-bold text-gray-600 underline !mb-3 sm:!mb-0">
           Doctors List
         </h1>
         <input
           type="search"
-          placeholder="Search by name or hospital or specialization"
+          placeholder="Search by name or hospital or specialization "
           className="bg-white border border-gray-300 rounded-lg outline-none !px-3 !py-2 w-auto sm:w-[500px]"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -109,7 +109,7 @@ const Home = () => {
         )}
       </div>
       <div>
-        <div className="flex items-center justify-end !mt-10 absolute right-10 bottom-10">
+        <div className="flex items-center justify-end !mt-10">
           <button
             className={`bg-gray-300 text-gray-600 !px-3 !py-1 rounded !mr-2 ${
               currentpage === 1 ? "cursor-not-allowed" : "cursor-pointer"

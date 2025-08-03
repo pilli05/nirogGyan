@@ -83,11 +83,16 @@ const Appointment = () => {
                   id="name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg !p-3 outline-none w-full"
                   placeholder="Enter your name"
-                  {...register("name", { required: true })}
+                  {...register("name", {
+                    required: "Patient name is required",
+                    maxLength: {
+                      value: 50,
+                      message: "Patient name should be less than 50 characters",
+                    },
+                  })}
                 />
                 <p className="text-red-500 text-xs !my-2">
-                  {errors.name?.type === "required" &&
-                    "Patient name is required"}
+                  {errors.name?.message}
                 </p>
               </div>
               <div className="">
@@ -103,10 +108,21 @@ const Appointment = () => {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg !p-3 outline-none w-full"
                   placeholder="Enter your email"
-                  {...register("email", { required: true })}
+                  maxLength={50}
+                  {...register("email", {
+                    required: "Email is required",
+                    maxLength: {
+                      value: 50,
+                      message: "Email must be under 50 characters",
+                    },
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Invalid email format",
+                    },
+                  })}
                 />
                 <p className="text-red-500 text-xs !my-2">
-                  {errors.email?.type === "required" && "Email id is required"}
+                  {errors.email?.message}
                 </p>
               </div>
               <div className="">
@@ -121,25 +137,22 @@ const Appointment = () => {
                   type="text"
                   id="age"
                   maxLength={3}
-                  onKeyDown={(e) => {
-                    const allowedKeys = [
-                      "Backspace",
-                      "Delete",
-                      "ArrowLeft",
-                      "ArrowRight",
-                      "Tab",
-                    ];
-                    const isNumberOrSpace = /[0-9 ]/.test(e.key);
-                    if (!isNumberOrSpace && !allowedKeys.includes(e.key)) {
-                      e.preventDefault();
-                    }
-                  }}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg !p-3 outline-none w-full"
                   placeholder="Enter your age"
-                  {...register("age", { required: true })}
+                  {...register("age", {
+                    required: "Age is required",
+                    maxLength: {
+                      value: 3,
+                      message: "Age must be under 3 characters",
+                    },
+                    pattern: {
+                      value: /^[0-9]+$/,
+                      message: "Age must be a number",
+                    },
+                  })}
                 />
                 <p className="text-red-500 text-xs !my-2">
-                  {errors.age?.type === "required" && "Age is required"}
+                  {errors.age?.message}
                 </p>
               </div>
               <div className="">
@@ -214,6 +227,7 @@ const Appointment = () => {
                 id="description"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg !p-3 outline-none w-full"
                 placeholder="Enter your description"
+                maxLength={2000}
                 {...register("description", { required: false })}
               />
             </div>

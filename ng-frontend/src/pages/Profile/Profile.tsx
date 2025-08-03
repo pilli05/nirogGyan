@@ -48,37 +48,37 @@ const Profile = () => {
         Doctor Profile
       </h1>
       <div className="!mt-5 flex justify-center ">
-        <div className="flex flex-col justify-center items-center !p-5  rounded-lg bg-white shadow-md shadow-gray-300 ">
-          <div className="w-20 h-20 rounded-full text-4xl  flex justify-center items-center !mb-5 bg-slate-200 text-[#ed2fda]">
+        <div className="flex flex-col justify-center items-center !p-5  rounded-lg bg-white shadow-md shadow-gray-300 w-full sm:w-xl">
+          <div className="w-20 h-20 rounded-full text-4xl !my-2  flex justify-center items-center !mb-5 bg-slate-200 text-[#ed2fda]">
             {doctorDetails?.name[0]}
           </div>
-          <div className="flex flex-col  !space-y-4">
-            <h1 className="text-xl font-bold text-blue-800 text-center">
+          <div className="flex flex-col  w-full">
+            <h1 className="text-xl font-bold text-blue-800 text-center !mb-2">
               Dr. {doctorDetails?.name}
             </h1>
-            <div className="flex justify-between items-center  text-sm text-gray-500">
+            <div className="flex justify-between items-center  text-sm text-gray-500 !my-1">
               <span className="w-[200px]">Specialization</span>
               <span className="font-semibold">
                 {doctorDetails?.specialization}
               </span>
             </div>
-            <div className="flex justify-between items-center  text-sm text-gray-500">
+            <div className="flex justify-between items-center  text-sm text-gray-500 !my-1">
               <span className="w-[200px]">Hospital</span>
               <span className="font-semibold">
                 {doctorDetails?.hospitalName}
               </span>
             </div>
-            <div className="flex justify-between items-center  text-sm text-gray-500">
+            <div className="flex justify-between items-center  text-sm text-gray-500 !my-1">
               <span className="w-[200px]">Email</span>
               <span className="font-semibold">{doctorDetails?.emailId}</span>
             </div>
-            <div className="flex justify-between items-center  text-sm text-gray-500">
+            <div className="flex justify-between items-center  text-sm text-gray-500 !my-1">
               <span className="w-[200px]">Mobile Number</span>
               <span className="font-semibold">
                 {doctorDetails?.contactDetails}
               </span>
             </div>
-            <div className="flex justify-between items-center  text-sm text-gray-500">
+            <div className="flex justify-between items-center  text-sm text-gray-500 !my-1">
               <span className="w-[200px]">Availability</span>
               <span
                 className={` text-black text-sm !px-2 !py-1 rounded ${
